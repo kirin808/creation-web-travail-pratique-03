@@ -65,6 +65,21 @@ img {
     object-fit: cover;
 } 
 
+
+
+/* Navigation principale */
+
+
+
+
+/* Structure générique des sections */
+section > header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+
+
 .imagePrincipale {
     width: 100%;
     color: rgb(12, 11, 11);
@@ -157,16 +172,21 @@ img {
     height: auto;
 }    
 
-.navigation {
-    display: flex;
+nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    font-size: 20px;
 }
 
-.menu ul li {
-    position: relative; 
-    float:left;
-} 
+nav > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
 
 .menu ul ul {
     display:none;

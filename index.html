@@ -23,27 +23,26 @@
             <label class="label-toggle" for="toggle">&#9776;</label>
             <input type="checkbox" id="toggle"/>
             <div class="menu menu-burger">
-                <nav class="navigation">
-                    <img class="logo" src=assets/image/vedge_logo.png alt="logo">
-                    <div class="menu_principal">
-                        <ul>
-                            <li><a href="#"><strong>Le Restaurant</strong></a></li>
-                            <li><a href="#"><strong>Chefs & Cuisine</strong></a></li>
-                            <li><a href="#"><strong>Menu</strong></a></li>
-                            <li><a href="#"><strong>Nos locations</strong></a>
-                                <ul>
-                                    <li><a href="#">Trois-Rivières</a></li>
-                                    <li><a href="#">Drummonville</a></li>
-                                    <li><a href="#">Val-Jalbert</a></li>
-                                    <li><a href="#">Dix30</a></li>
-                                    <li><a href="#">Toronto</a></li>
-                                    <li><a href="#">Berlin</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><strong>Réservations</strong></a></li>
-                            <li><a href="#"><strong>Commander en ligne</strong></a></li>
-                        </ul>
-                    </div>
+                <nav class="navigation">                    
+                    <ul class="navigation-principale">
+                    	<li><img class="logo" src=assets/image/vedge_logo.png alt="logo"></li>
+                        <li><a href="#"><strong>Le Restaurant</strong></a></li>
+                        <li><a href="#"><strong>Chefs & Cuisine</strong></a></li>
+                        <li><a href="#"><strong>Menu</strong></a></li>
+                        <li><a href="#"><strong>Nos locations</strong></a>
+                            <ul>
+                                <li><a href="#">Trois-Rivières</a></li>
+                                <li><a href="#">Drummonville</a></li>
+                                <li><a href="#">Val-Jalbert</a></li>
+                                <li><a href="#">Dix30</a></li>
+                                <li><a href="#">Toronto</a></li>
+                                <li><a href="#">Berlin</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><strong>Réservations</strong></a></li>
+                        <li><a href="#"><strong>Commander en ligne</strong></a></li>
+                    </ul>
+                    
                     <div class="menu menu_droite">
                         <ul>
                             <li><a href="#">Fr</a></li>
@@ -60,9 +59,9 @@
                 bon pour la nature
             </h1>
             <img src="assets/image/medium-principale-2.jpg" alt="Table vu de haut avec de beaux plats remplis de nourriture">
-        </div>
-        
+        </div>        
     </header>
+
     <div class="botanique-container">
         <section class="txtBotanique">
             <h2>Botanique et décadente</h2>
@@ -70,46 +69,52 @@
         </section>
         <img class="imgBotanique" src="assets/image/botanique-decadent.jpg" alt="Mon image">
     </div>
-    <div>
-        <h1>Menus</h1>
-        <h2>Régalez-vous en bonne conscience !</h2>
+
+    <section>
+        <header>
+            <h2>Menus</h2>
+            <p>Régalez-vous en bonne conscience !</p>
+        </header>
         <div class="grille">
             <div>
-                <h3> Menu du jour</h3>
+                <h4>Menu du jour</h4>
                 <p>Du lundi au vendredi, de 11h à 15h</p>
                 <img class="lien" src="assets/image/lunch.jpg" alt="Mon image">
             </div>
             <div>
-                <h3> Menu du soir</h3>
+                <h4>Menu du soir</h4>
                 <p>Du mardi au dimanche soir</p>
                 <img class="lien" src="assets/image/menu1.jpg" alt="Mon image">
                 </div>
             <div>
-                <h3> Menu brunch</h3>
+                <h4>Menu brunch</h4>
                 <p>Samedi et dimanche de 10h à 15h</p>
                 <img class="lien" src="assets/image/menu-dej.jpg" alt="Mon image">
             </div>
             <div>
-                <h3>Menu boissons</h3>
+                <h4>Menu boissons</h4>
                 <p>Vins biologiques et botaniques</p>
                 <img class="lien" src="assets/image/menu-drink2.jpg" alt="Mon image">
             </div>
             <div>
-                <h3> Menu pour emporter</h3>
+                <h4>Menu pour emporter</h4>
                 <p>Emballage écologique</p>
                 <img src="assets/image/menu-takeout.jpg" alt="Mon image">
                 <button class="bouton-reserve">Commande en ligne</button>
             </div>
             <div>
-                <h3>Vous souhaitez réserver?</h3>
+                <h4>Vous souhaitez réserver?</h4>
                 <p>N'attendez pas trop !</p>
                 <img src="assets/image/reserved.jpg" alt="Mon image">
                 <button class="bouton-reserve">Réservez en ligne</button>
             </div>
         </div>
-    </div>
-    <div>
-        <h1>Restaurant en vedette!</h1>
+    </section>
+
+    <section>
+        <header>
+            <h2>Restaurants en vedette&nbsp;!</h2>
+        </header>
         <div class="grille">
             <article>
                 <div>
@@ -155,22 +160,26 @@
                 
             </article>
         </div>
-    </div>  
-    <div class="grille">
-        <div>
-            <h2>Profitez de nos promotions</h2>
-            <p>Deux Mimosas pour 15$ pendant toute l’heure du brunch</p>
-            <img class="zoom" src="assets/image/mimosas.jpg" alt="Mon image">
-            <button id="bouton-promo" class="bouton-reserve">Voir nos promotions</button>
-        </div>
-        <div>
-            <h2>Trouvez un resto Vedge</h2>
-            <p>Entrez votre ville ou votre code postal :</p>
-            <img class="zoom" src="assets/image/Trouvez.jpg" alt="Mon image">
-            <input type="search" id="site-search">
-            <button id="bouton-site" class="bouton-reserve">Rechercher</button>
+    </section>
+
+    <div>
+        <div class="grille">
+            <article>
+                <h2>Profitez de nos promotions</h2>
+                <p>Deux Mimosas pour 15$ pendant toute l’heure du brunch</p>
+                <img class="zoom" src="assets/image/mimosas.jpg" alt="Mon image">
+                <button id="bouton-promo" class="bouton-reserve">Voir nos promotions</button>
+            </article>
+            <article>
+                <h2>Trouvez un resto Vedge</h2>
+                <p>Entrez votre ville ou votre code postal :</p>
+                <img class="zoom" src="assets/image/Trouvez.jpg" alt="Mon image">
+                <input type="search" id="site-search">
+                <button id="bouton-site" class="bouton-reserve">Rechercher</button>
+            </article>
         </div>
     </div>
+
     <div class="franchise">
         <div class="franchise-container">
             <section class="txtfranchise">
@@ -179,7 +188,8 @@
             </section>
             <img class="imgfranchise" src="assets/image/franchise.jpeg" alt="Mon image">
         </div>
-    </div>  
+    </div>
+
     <footer>
         <nav class="navigation">
             <div class="menu menu_secondaire">
