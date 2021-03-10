@@ -14,9 +14,14 @@ h1, h2, h3, h4, h5, h6 {
         (moins espacé que le contenu courant) */
     
 	
-h1 {		
+h1 {
 	font-size: 80px;
-	line-height: 1.1em;		
+	line-height: 1.1em;
+}
+
+h1,
+section > header {
+	text-align: center;
 }
 
 h2 {
@@ -32,17 +37,17 @@ h4 {
 	font-size: inherit;
 }
 
-/*body>div>h2 {
-	margin-left: 10px; 
-}*/
-
 h5 {
 	font-size: 16px;
 }
 
-li {
-	list-style-type: none;
+
+
+/* Navigation principale */
+.navigation-principale li {
+	text-align: center;
 }
+
 
 p {
 	font-size: 20px;

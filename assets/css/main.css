@@ -82,8 +82,7 @@ section > header {
 
 .imagePrincipale {
     width: 100%;
-    color: rgb(12, 11, 11);
-    z-index: -1;
+    max-height: 500px;
 }
 
 /*Conteneur de grille ------------*/
@@ -174,14 +173,28 @@ section > header {
 
 nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
 
-nav > ul {
+.navigation-principale {
+    grid-column: 2;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.navigation-principale > * {
+    flex-grow: 1;
+}
+
+.selection-langue {
+    justify-self: end;
+}
+
+.selection-langue > * {
+    display: inline-block;
 }
 
 

@@ -6,6 +6,7 @@
 
 # Structure
 
+* Centrer le menu principal afin de le rendre plus présent et par le fait même, accessible.
 * Centrer le texte et l'image du panneau botanique ("featured") pour une meilleure lecture du site.
 
 ---
