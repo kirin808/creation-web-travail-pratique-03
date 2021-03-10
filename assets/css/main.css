@@ -35,79 +35,37 @@ Palette de couleurs
         margin: 0;
         padding: 0;
     }
-
-/* Base typographique à être héritée */
-    html {
-        font-family: 'El Messiri', sans-serif;
-        line-height: 1.5625;
-    }
-
+  
     header {
         margin-bottom: 30px;
     }
 
     body {
-        padding: 12px;
+        padding: 20px;
     }
 
-    /*Pour bien séparer les grandes sections*/
-    body>*+* {
+    /* Rythme vertical général */
+    * + :is(p, h1, h2, img, button, .grille) {
+        margin-top: 20px;
+    }
+
+    /*Pour bien séparer les grandes sections et l'en-tête*/
+    body>*+*,
+    header > * + * {
 		margin-top: 80px;
 	}
 
-/* Interlignage propre aux titres
-        (moins espacé que le contenu courant) */
-        h1 {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 80px;
-            text-align: center;
-            margin-top: 20px;
-            color: #228B22;
-        }
 
-    h2, h4 {
-        line-height: 1.5625;
-        font-size: 26px;
-        font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    h3 { 
-        margin-left: 0;
-        font-size: 20px;
-    }
-
-    h2 {
-        border-bottom: 1px solid rgba(0,0,0,.2);
-        padding-bottom: 10px;
-        font-size: 50px;
-    }
-    body>div>h2 {
-        margin-left: 10px; 
-    }
-
-    h5 {
-        font-size: 16px;
-        padding-top: 0;
-    }
-
-    li {
-        list-style-type: none;
-    }
-
-    p {
-        font-size: 20px;
-    }
 
 /* Style pour les images */
 img {
     display: block;
-    width: calc(100% - 5px); 
+    max-width: 100%; 
     overflow: hidden;
-    margin-top: 10px; 
+    object-fit: cover;
 } 
 
 .imagePrincipale {
-    text-align: center;
     width: 100%;
     color: rgb(12, 11, 11);
     z-index: -1;
@@ -118,17 +76,21 @@ img {
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    gap: 20px;
 }
 
-.grille>* {
+.grille > * {
     flex: 1 400px;
-    margin: 12px;
     min-width: 20ch;
-    justify-self: center;
 }
 
 .grille h2 {
     font-size: 30px;
+}
+
+.grille img {
+    width: 100%;
+    max-height: 600px;
 }
 
 .botanique-container {
@@ -284,7 +246,6 @@ img {
 
 .bouton-reserve {
     padding: 6px;
-    margin: 12px 12px 12px 0;
     background-color: #228B22;
     text-decoration: none;
     cursor: pointer;
@@ -318,7 +279,6 @@ img {
     
 .zoom {
     transition: transform .5s;
-    margin: 0 auto;
     max-width: 50%;
     float: left;
 }
