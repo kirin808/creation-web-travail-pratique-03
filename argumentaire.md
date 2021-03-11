@@ -12,7 +12,8 @@
 # Structure
 
 * Centrer le menu principal afin de le rendre plus présent et par le fait même, accessible;
-* Centrer le texte et l'image des encadrés / cta pour une meilleure lecture du site.
+* Centrer le texte et l'image des encadrés / cta pour une meilleure lecture du site;
+* Refonte complète du footer parce que je crois que c'était nécessaire afin d'assurer de la cohérence visuelle.
 
 ---
 

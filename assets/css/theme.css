@@ -3,6 +3,10 @@ li {
 	list-style-type: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 body {
 	background-image: linear-gradient(135deg, rgba(15, 235, 44, 0.08), rgba(0,0,0,0) 30%);
 	background-attachment: fixed;
@@ -10,7 +14,6 @@ body {
 
 h1,
 h2,
-h3,
 h4 {
 	color: #228B22;
 }
@@ -27,14 +30,15 @@ input {
 }
 
 input:focus {
-	background-color: hsl(308, 86%, 95%);
+	background-color: hsla(59, 75%, 51%, 0.527);
 	outline: 0;
 	box-shadow: 
 		1px 1px 4px 1px hsla(308, 86%, 95%, .5),
 		1px 1px 3px 0px rgba(0,0,0,.2);
 }
 
-button {
+button,
+.cta {
 	color: white;
 	background-color: #228B22;
 	box-shadow: 
@@ -47,21 +51,26 @@ button {
 	transition-duration: 120ms;
 }
 
-button:hover,
-button:focus {
+:is(button, .cta):hover,
+:is(button, .cta):focus {
 	background-color: rgba(15, 235, 44, 0.3);
 	color:#000000;
 }
 
-button:focus {
+:is(button, .cta):focus {
 	outline: 2px dotted #228B22;
 	box-shadow: 
 		1px 1px 4px 1px hsla(308, 86%, 95%, .5),
 		1px 1px 3px 0px rgba(0,0,0,.2);
 }
 
-button:active {
+:is(button, .cta):active {
 	transform: translateY(4px);
+}
+
+::placeholder {
+	font-style: oblique;
+	text-overflow: ellipsis;
 }
 
 
