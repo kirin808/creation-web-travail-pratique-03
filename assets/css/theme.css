@@ -7,6 +7,13 @@ li {
 
 h1,
 h2,
+h3,
 h4 {
 	color: #228B22;
+}
+
+
+/* Encadrés et CTA */
+.encadre {
+	background-color: rgba(15, 235, 44, 0.1);
 }
