@@ -45,7 +45,7 @@ body {
 }
 
 /* Rythme vertical général */
-* + :is(p, h1, h2, img, button, .grille) {
+* + :is(p, h1, h2, img, button, input, .grille) {
 	margin-top: 20px;
 }
 
@@ -58,6 +58,10 @@ header > * + * {
 
 
 /* Style pour les images */
+picture {
+	display: block;
+}
+
 img {
 	display: block;
 	max-width: 100%; 
@@ -73,26 +77,12 @@ img[src*="resto1"] {
 	object-position: 0px -35px;
 }
 
-
-
-
-/* Navigation principale */
-
-
-
-
-/* Structure générique des sections */
-section > header {
-	padding-bottom: 10px;
-	border-bottom: 1px solid rgba(0,0,0,.2);
-}
-
-
-
 .imagePrincipale {
 	width: 100%;
 	max-height: 500px;
 }
+
+
 
 /*Conteneur de grille ------------*/
 .grille {
@@ -112,6 +102,8 @@ section > header {
 }
 
 
+
+/* Bloc à deux panneaux */
 .deux-panneaux {
 	display: flex;
 	flex-wrap: wrap;
@@ -133,11 +125,12 @@ section > header {
 
 .deux-panneaux picture,
 .deux-panneaux img {
-	min-height: 100%;
+	width: 100%;
+	max-height: 400px;
 }
 
 
-/* Encadré / CTA à deux panneaux */
+/* Encadré / CTA */
 .encadre {
 	padding: 40px;
 }
@@ -164,57 +157,19 @@ section > header {
 }
 
 
-.botanique-container {
-	display: flex;
-	
-	padding-top: 30px;
-	padding-bottom: 30px;
+
+/* Panneau promo */
+.promo h2 {
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
-/*.imgBotanique {
-	max-width: 600px;
-	object-fit: contain;
-	margin: 30px;
-}*/
-
-.txtBotanique {
-	align-self: center;
-	margin-left: 30px;
-	margin-right: auto;
-}
-
-#site-search { 
-	width: 100px;
+.promo input {
+	margin-right: 20px;
 }
 
 
-.imgfranchise {
-	display: block;
-	width: 100%;
-	max-width: 600px;
-	object-fit: cover;
-	float: right;
-	margin: 30px;
-	overflow: hidden;
-	padding: 20px;
-}
-
-.franchise-container {
-	margin-top: 40px; 
-	display: flex;
-	background-color: rgba(15, 235, 44, 0.1);
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-
-.txtfranchise {
-	float: left;
-	align-self: center;
-	margin-left: 30px;
-}
-
-
-/*----Navigation principal*/
+/*----Navigation principale */
 .logo {
 	max-width: 80px;
 	height: auto;
@@ -324,67 +279,14 @@ nav {
 	display: none;
 }
 
-/* -----------------lien-------------------*/
 
-.bouton-reserve {
-	padding: 6px;
-	background-color: #228B22;
-	text-decoration: none;
-	cursor: pointer;
-	color: white;
-	font-size: 16px;
-	text-align: center;
-	max-height: 40px;
-	outline: none;
+/*-------------- Éléments de formulaires -----------------*/
+
+input,
+button {
+	padding: 10px;
+	border-radius: 4px;
 	border: none;
-	border-radius: 12px;
-	box-shadow: 0 5px #999;
-}
-
-.bouton-reserve:hover {
-	background-color: rgba(15, 235, 44, 0.3);
-	box-shadow: 0px 5px rgb(2, 2, 2);
-	color:#000000;
-}
-
-.bouton-reserve:active {
-	background-color: #3e8e41;
-	box-shadow: 0px 5px rgb(2, 2, 2);
-	transform: translateY(4px);
-}
-
-#bouton-site, #bouton-promo { 
-	margin-left: 20px;
-}
-
-/*-------------- Effets-----------------*/
-
-label {
-	display: block;
-	font-size:20px;
-}
-
-input:hover {
-	box-shadow: 0px 5px rgb(2, 2, 2);
-	color:#000000;
-}
-
-/*-------------- Recherche-----------------*/
-
-input {
-	min-height: 30px;
-	background-color:  rgba(15, 235, 44, 0.3);
-	padding-top: 6px;
-	padding-bottom: 6px;
-	border-radius: 12px;
-	color: black;
-	font-size: 16px;
-	text-align: center;
-	outline: none;
-	border: none;
-	border-radius: 12px;
-	box-shadow: 0 5px #999;
-	margin-left: 20px; 
 }
 
 /*----------------footer----------------*/
