@@ -34,6 +34,8 @@ intérieures & extérieures sur tout */
 * {
 	margin: 0;
 	padding: 0;
+
+	box-sizing: border-box;
 }
 
 header {
@@ -97,8 +99,9 @@ button,
 	border: none;
 }
 
-input + button {
-	margin-left: 8px;
+input {
+	display: block;
+	width: 100%;
 }
 
 
@@ -238,7 +241,7 @@ nav.navigation {
 }
 
 .menu a {
-	padding: 6px 20px;
+	padding: 6px clamp(.5em, .3em + 1.2vw, 1em);
 	color: inherit;
 	
 	transition-duration: 100ms;
@@ -314,138 +317,38 @@ footer nav {
 /* Adaptation de la maquette pour les appareils suivants */
 @media (min-width: 320px) and (max-width: 500px) {
 	/*Téléphone*/
-	html {
-		font-size: 13px;
-	}
-	
 	body>*+* {
 		margin-top: 40px;
-	}
-	
-	.navigation {
-		font-size: small;
-	}
-	.menu a {
-		margin: 0;
 	}
 	
 	.menu_droite {
 		margin-left: 10px;
 	}
 	
-	h1 {
-		font-size: xx-large;
-	}
-	
-	.grille h2 {
-		font-size: large;
-	}
-	
-	.txtBotanique p { 
-		font-size: small;
-		
-	}
-	
-	.txtBotanique h2, p { 
-		margin-right: 5px; 
-		font-size: 15px;
-	}
-	
-	.botanique-container {
-		display: block; 
-		background-color: rgba(15, 235, 44, 0.1);
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	
-	input { 
-		font-size: smaller;
-	}
 	
 	#site-search { 
 		width: 60px;
 	}
-	
-	#bouton-site, #bouton-promo { 
-		margin-left: 20px;
-	}
-	
+		
 	.adresse {
 		display: flex;
 		align-items: center;
 		text-align: center;
-		margin: 20px;
-		font-size: x-small;
-	}
-	
-	label {
-		font-size: 12px;
-	}
-	
-	.adresse * {
-		font-size: x-small;
-	}
-	
-	.logo-footer {
-		width: 40px;
-		height: 40px;
-		margin-left: auto; 
-		margin-right: auto;
-	}
-	
-	.mail-search {
-		font-size: 10px;
+		margin: 20px;		
 	}
 	
 	.mail-search {
 		margin-left: 0;
 		width: 100px;
 	}
-	
-	#bouton-courriel {
-		width: 100px;
-	}
 }
 
 @media (min-width: 501px) and (max-width: 1150px) {
 	/*Tablette*/
-	html {
-		font-size: 12px;
-	}
-	
 	.logo {
 		max-width: 80px;
 		height: auto;
 	}
-	
-	.navigation {
-		font-size: small;
-	}
-	
-	h1 {
-		font-size: xx-large;
-	}
-	
-	.txtBotanique p { 
-		font-size: larger;
-	}
-	
-	.txtBotanique h2, p { 
-		margin-right: 5px;
-		font-size: 15px;
-	}
-	
-	.botanique-container {
-		display: flex;
-		background-color: rgba(15, 235, 44, 0.1);
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	
-	.adresse * {
-		font-size: small;
-	}
-	
 }
 
 /*-------------Menu secondaire dans le footer en 2 colonnes--------*/
@@ -540,35 +443,7 @@ footer nav {
 		display: flex;
 	}
 	
-	h2, h3, h4 { 
-		font-size: larger; 
-	}
-	
 	.txtBotanique { 
 		margin-left: 5px;
-	}
-	
-	.bouton-reserve {
-		font-size: x-small;
-	}
-	
-	.adresse * {
-		font-size: small;
-	}
-}
-
-@media (min-width: 981px) and (max-width: 1001px) {
-	.navigation ul ul li {
-		font-size: 12px;
-	}
-}
-
-@media (min-width: 1151px) and (max-width: 1260px) {
-	.navigation {
-		font-size: 17px;
-	}
-	
-	.navigation ul ul li {
-		font-size: 15px;
 	}
 }
