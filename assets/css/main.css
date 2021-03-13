@@ -439,6 +439,7 @@ footer nav {
 
 /*------------------Téléphone et Tablette---------------*/
 @media (min-width: 320px) and (max-width: 1150px) {
+
 	.menu ul {  
 		display: flex;
 	}
@@ -446,4 +447,5 @@ footer nav {
 	.txtBotanique { 
 		margin-left: 5px;
 	}
+
 }
