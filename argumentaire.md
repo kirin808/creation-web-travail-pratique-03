@@ -11,6 +11,9 @@
 
 # Structure
 
+* Échanger les section menus et "Botanique" afin de :
+	* Rapprocher ce que l'usager est venu généralement consulté du haut de la page;
+	* Séprarer les deux blocs de cartes (Menus et Restaurants)
 * Centrer le menu principal afin de le rendre plus présent et par le fait même, accessible;
 * Centrer le texte et l'image des encadrés / cta pour une meilleure lecture du site;
 * Refonte complète du footer afin d'assurer de la cohérence visuelle.
@@ -25,4 +28,4 @@
 
 # QoL
 
-* Ajout de liens pour les éléments "Menus" afin d'avoir une homogénéité d'interactions pour l'usager. 
+* Ajout de liens pour les éléments "Menus" afin d'avoir une homogénéité d'interactions pour l'usager.

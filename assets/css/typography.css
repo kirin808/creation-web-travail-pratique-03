@@ -1,14 +1,9 @@
 /* Coeffecient de taille */
 :root {
 	--fontSizeInitial: 1rem;
-	--fontBase: .6rem;
-	--fontGrow: .7vw;
+	--fontBase: 1.5vw;
 	--fontScale: 1.414; /* Augmented fourth https://type-scale.com */
 	
-	--fontSizeMin: (var(--fontSizeInitial) * var(--fontScaling) / var(--fontScale));
-	;
-	--fontSizeScaling: var(--fontBase) * var(--fontScaling) / var(--fontScale) + var(--fontGrow) * var(--fontScaling) / var(--fontScale);
-
 	--fontScalingMega: calc(var(--fontScale) * var(--fontScale) * var(--fontScale) * var(--fontScale) * var(--fontScale));
 	--fontScalingKilo: calc(var(--fontScale) * var(--fontScale) * var(--fontScale) * var(--fontScale));
 	--fontScalingHecto: calc(var(--fontScale) * var(--fontScale) * var(--fontScale));
@@ -18,19 +13,41 @@
 
 }
 
+/* Taille de caractères et hauteur de ligne */
+html {
+	font-size: clamp(
+		var(--fontSizeInitial) * var(--fontScalingBase) / var(--fontScale),
+		var(--fontBase) * var(--fontScalingBase) / var(--fontScale),
+		var(--fontSizeInitial) * var(--fontScalingBase));
+	line-height: 1.5625;
+}
+
+h1 {
+	font-size: clamp(
+		var(--fontSizeInitial) * var(--fontScalingMega) / var(--fontScale),
+		var(--fontBase) * var(--fontScalingMega) / var(--fontScale),
+		var(--fontSizeInitial) * var(--fontScalingMega));
+	line-height: 1em;
+}
+
+h2 {
+	font-size: clamp(
+		var(--fontSizeInitial) * var(--fontScalingKilo) / var(--fontScale),
+		var(--fontBase) * var(--fontScalingKilo) / var(--fontScale),
+		var(--fontSizeInitial) * var(--fontScalingKilo));
+	line-height: 1.025em;
+}
+
+h3 { 
+	font-size: clamp(
+		var(--fontSizeInitial) * var(--fontScalingDeca) / var(--fontScale),
+		var(--fontBase) * var(--fontScalingDeca) / var(--fontScale),
+		var(--fontSizeInitial) * var(--fontScalingDeca));
+}
+
 /* Base typographique à être héritée */
 body {
-	--fontScaling: (var(--fontScalingBase));
-	--fontSizeMin: (var(--fontSizeInitial) * var(--fontScaling) / var(--fontScale));
-	--fontSizeMax: (var(--fontSizeInitial) * var(--fontScaling));
-	--fontSizeScaling: var(--fontBase) * var(--fontScaling) / var(--fontScale) + var(--fontGrow) * var(--fontScaling) / var(--fontScale);
-	--test: calc(var(--fontSizeMax));
-
 	font-family: "Open Sans", sans-serif;
-	font-size: clamp(var(--fontSizeMin), var(--fontSizeScaling), var(--test));
-		
-	font-weight: 400; 
-	line-height: 1.5625;
 }
 
 
@@ -38,37 +55,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'El Messiri', sans-serif;
 }
-/* Interlignage propre aux titres
-        (moins espacé que le contenu courant) */
-    
-	
-h1 {
-	font-size: clamp(
-		var(--fontSizeInitial) * var(--fontScalingMega) / var(--fontScale),
-		var(--fontBase) * var(--fontScalingMega) / var(--fontScale) + v * var(--scale-factor) * 3,
-		1.414rem * var(--scale-factor) * 3);
-	line-height: 1.1em;
-}
+
 
 h1,
 section > header {
 	text-align: center;
 }
 
-h2 {
-	font-size: clamp(
-		1rem * var(--scale-factor) * 2,
-		.6rem * var(--scale-factor) * 2 + .7vw * var(--scale-factor) * 2,
-		1.414rem * var(--scale-factor) * 2);
-	line-height: 1.2em;
-}
-
-h3 { 
-	font-size: clamp(
-		1rem * var(--scale-factor),
-		.6rem * var(--scale-factor) + .7vw * var(--scale-factor),
-		1.414rem * var(--scale-factor))
-}
 
 h4 {
 	font-size: inherit;
@@ -83,15 +76,16 @@ button {
 	font-size: inherit;
 }
 
-/* Navigation principale */
-.navigation-principale li {
-	text-align: center;
+
+
+@media (min-width: 751px) and (max-width: 1150px) {
+	:root {
+		--fontScale: 1.333;
+	}
 }
 
-
-
-@media (min-width: 320px) and (max-width: 1150px) {
+@media (min-width: 320px) and (max-width: 750px) {
 	:root {
-		--fontScale: 1.222;
+		--fontScale: 1.250;
 	}
 }

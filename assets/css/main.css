@@ -27,6 +27,19 @@ font-family: 'Noto Sans JP', sans-serif; => pour les titres
 
 */
 
+/* Propriétés personnalisées :::::::: */
+:root {
+	--gutterMega: calc(var(--gutter) * 4);
+	--gutterKilo: calc(var(--gutter) * 3);
+	--gutterHecto: calc(var(--gutter) * 2);
+	--gutterDeca: calc(var(--gutter) * 1.5);
+	--gutter: 1rem;
+	--gutterDeci: calc(var(--gutter) * .75);
+	--gutterCenti: calc(var(--gutter) * .5);
+
+	--cardMinSize: 500px;
+}
+
 /* Règles génériques ----------------------- */
 
 /* Rétablir les marges 
@@ -38,24 +51,24 @@ intérieures & extérieures sur tout */
 	box-sizing: border-box;
 }
 
-header {
-	margin-bottom: 30px;
-}
-
 body {
-	padding: 20px;
+	padding: var(--gutter);
 }
 
 /* Rythme vertical général */
-* + :is(p, h2, img, a, button, input, .grille) {
-	margin-top: 20px;
+* + :is(p, h2, img, a, input, .grille) {
+	margin-top: var(--gutter);
 }
 
 /*Pour bien séparer les grandes sections et l'en-tête*/
 body> * + *,
 header > * + *,
 * + h1 {
-	margin-top: 80px;
+	margin-top: var(--gutterMega);
+}
+
+input + button {
+	margin-top: var(--gutterCenti);
 }
 
 
@@ -100,8 +113,7 @@ button,
 }
 
 input {
-	display: block;
-	width: 100%;
+	width: 80%;
 }
 
 
@@ -109,9 +121,9 @@ input {
 /*Conteneur de grille ------------*/
 .grille {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-	column-gap: 20px;
-	row-gap: 60px;
+	grid-template-columns: repeat(auto-fit, minmax(var(--cardMinSize), 1fr));
+	column-gap: var(--gutterHecto);
+	row-gap: var(--gutterHecto);
 }
 
 .grille h2 {
@@ -129,11 +141,11 @@ input {
 .deux-panneaux {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: var(--gutterHecto);
 }
 
 .deux-panneaux > * {
-	flex-basis: calc((100% / 2) - 20px);
+	flex-basis: calc((100% / 2) - var(--gutterHecto));
 	flex-grow: 1;
 }
 
@@ -154,7 +166,7 @@ input {
 
 /* Encadré / CTA */
 .encadre {
-	padding: 40px;
+	padding: calc(var(--gutter) * 2);
 }
 
 .encadre > .contenu {
@@ -164,7 +176,7 @@ input {
 }
 
 .encadre > .contenu > * {
-	min-width: 30ch;
+	min-width: 15rem;
 }
 
 .encadre img {
@@ -174,15 +186,16 @@ input {
 
 
 /* Panneau promo */
-.promo h2 {
-	padding-bottom: 10px;
-	border-bottom: 1px solid rgba(0,0,0,.2);
+.promo > * {
+	min-width: 12rem;
 }
 
 
 /*----Navigation principale */
 .logo {
-	max-width: 80px;
+	min-width: 50px;
+	width: 100%;
+	max-width: 90px;
 	height: auto;
 }    
 
@@ -315,6 +328,27 @@ footer nav {
 
 
 /* Adaptation de la maquette pour les appareils suivants */
+@media (min-width: 320px) and (max-width: 650px) {
+	:root {
+		--cardMinSize: 300px;
+	}
+
+	.grille img {
+		max-height: 150px;
+	}
+
+	.encadre > .contenu > * {
+		min-width: 20ch;
+	}
+}
+
+@media (min-width: 651px) and (max-width: 1150px) {
+	:root {
+		--cardMinSize: 400px;
+	}
+}
+
+
 @media (min-width: 320px) and (max-width: 500px) {
 	/*Téléphone*/
 	body>*+* {
@@ -340,14 +374,6 @@ footer nav {
 	.mail-search {
 		margin-left: 0;
 		width: 100px;
-	}
-}
-
-@media (min-width: 501px) and (max-width: 1150px) {
-	/*Tablette*/
-	.logo {
-		max-width: 80px;
-		height: auto;
 	}
 }
 
