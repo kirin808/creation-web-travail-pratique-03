@@ -1,5 +1,6 @@
 # Langage graphique
 
+* Ajustement du vert foncé qui n'était malheureusement pas assez sombre afin d'assurer un contraste suffisant. Le logo serait probablement à ravoir également.
 * Ajout d'un léger dégradé vert en arrière-plan afin d'atténuer le blanc pur et rendre l'expérience visuelle plus agréable;
 * Transformation des boutons afin de les rendre "au goût du jour" et donner un aspect plus professionnel au site.
 

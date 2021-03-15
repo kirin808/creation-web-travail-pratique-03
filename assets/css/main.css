@@ -37,7 +37,7 @@ font-family: 'Noto Sans JP', sans-serif; => pour les titres
 	--gutterDeci: calc(var(--gutter) * .75);
 	--gutterCenti: calc(var(--gutter) * .5);
 
-	--cardMinSize: 500px;
+	--cardMinSize: 400px;
 }
 
 /* Règles génériques ----------------------- */
@@ -61,7 +61,7 @@ body {
 }
 
 /*Pour bien séparer les grandes sections et l'en-tête*/
-body> * + *,
+main > * + *,
 header > * + *,
 * + h1 {
 	margin-top: var(--gutterMega);
@@ -87,10 +87,6 @@ img {
 
 img.focus-bas {
 	object-position: bottom;
-}
-
-img[src*="resto1"] {
-	object-position: 0px -35px;
 }
 
 .imagePrincipale {
@@ -132,6 +128,7 @@ input {
 
 .grille img {
 	width: 100%;
+	height: 12rem;
 	max-height: 300px;
 }
 
@@ -202,6 +199,7 @@ input {
 nav.navigation {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
+	gap: var(--gutterDeca);
 	align-items: center;
 }
 
@@ -235,11 +233,6 @@ nav.navigation {
 	margin-left: -10px;
 }
 
-.menu ul ul li {
-	float:none;
-	margin: 0px 11px;
-}
-
 .menu>ul>li>ul a {
 	display: block; 
 	padding: 0;
@@ -261,11 +254,6 @@ nav.navigation {
 }
 
 
-
-.menu a:hover {
-	background-color: #228B22;
-	color: white;
-}
 
 .menu_droite {
 	margin-left: auto; 
@@ -301,23 +289,24 @@ nav.navigation {
 footer {
 	display: grid;
 	grid-template-columns: minmax(min-content, 30ch) auto minmax(min-content, 30ch);
-	gap: 20px;
+	gap: var(--gutter);
 
-	padding: 20px;
+	padding: var(--gutter);
 }
 
 footer .logo {
 	max-width: 80px;
 }
 
-footer nav {
+/*footer nav {
 	justify-self: center;
-}
+}*/
 
 /*----Navigation secondaire, dans le footer-------------*/
 .menu_secondaire {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .infolettre {
@@ -345,6 +334,26 @@ footer nav {
 @media (min-width: 651px) and (max-width: 1150px) {
 	:root {
 		--cardMinSize: 400px;
+	}
+
+	footer {
+		grid-template:
+			".....	nav		nav		....."
+			".....	address	news	....."
+			/ var(--gutterMega) 1fr 1fr var(--gutterMega);
+		gap: var(--gutterHecto);
+	}
+
+	footer > nav {
+		grid-area: nav;
+	}
+
+	.adresse {
+		grid-area: address;
+	}
+
+	.infolettre {
+		grid-area: news;
 	}
 }
 
@@ -391,10 +400,8 @@ footer nav {
 	.menu ul ul {
 		display:block;
 		position:relative;
-		padding:0;
-		
-		background-color: white;
-		margin-left: 10px;
+
+		margin-left: 0;
 	}
 	
 	
@@ -411,7 +418,6 @@ footer nav {
 	.nav {
 		position: fixed;
 		top: 0;
-		background-color: white;
 		width: calc(100% - 5px);
 		z-index: 1;
 	}
@@ -455,9 +461,6 @@ footer nav {
 		display: flex;
 	}
 	
-	.logo{
-		display: none;
-	}
 	.nav>label{
 		display: block;
 	}
@@ -468,10 +471,6 @@ footer nav {
 
 	.menu ul {  
 		display: flex;
+		align-items: unset;
 	}
-	
-	.txtBotanique { 
-		margin-left: 5px;
-	}
-
 }
