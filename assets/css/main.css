@@ -1,9 +1,9 @@
 /* 
 Palette de couleurs
 
-#228B22 vert des gros titres
+hsl(148, 100%, 20%) vert sombre; titres et boutons / liens
 rgba(15, 235, 44, 0.1); vert pâle, couleur de fond
-rgba(15, 235, 44, 0.3); bouton hover
+hsla(59, 75%, 51%, 0.527); "jaune céréale" pour effet de survol et de focus de champ à remplir
 rgb(2, 2, 2); box-shadow noir  
 
 Échelle rythmique
@@ -15,9 +15,10 @@ rgb(2, 2, 2); box-shadow noir
 
 Échelle typographique
 
-'El Messiri', sans-serif
+'El Messiri', sans-serif => texte régulier
+'Open Sans', sans-serif; => pour les titres
 line-height de base = 1.5625
-font-family: 'Noto Sans JP', sans-serif; => pour les titres
+
 
 16px
 20px
@@ -37,7 +38,9 @@ font-family: 'Noto Sans JP', sans-serif; => pour les titres
 	--gutterDeci: calc(var(--gutter) * .75);
 	--gutterCenti: calc(var(--gutter) * .5);
 
-	--cardMinSize: 400px;
+	--cardMinSize: 450px;
+
+	--bottomBarHeight: 80px;
 }
 
 /* Règles génériques ----------------------- */
@@ -62,7 +65,7 @@ body {
 
 /*Pour bien séparer les grandes sections et l'en-tête*/
 main > * + *,
-header > * + *,
+header > * + *:not(div),
 * + h1 {
 	margin-top: var(--gutterMega);
 }
@@ -94,6 +97,15 @@ img.focus-bas {
 	max-height: 500px;
 }
 
+.logo-mobile {
+	display: none;
+
+	width: 20%;
+	min-width: 75px;
+	max-width: 120px;
+	margin-right: auto;
+	margin-left: auto;
+}
 
 /*-------------- Éléments de formulaires et liens -----------------*/
 :not(p) > a {
@@ -122,10 +134,6 @@ input {
 	row-gap: var(--gutterHecto);
 }
 
-.grille h2 {
-	font-size: 30px;
-}
-
 .grille img {
 	width: 100%;
 	height: 12rem;
@@ -144,10 +152,13 @@ input {
 .deux-panneaux > * {
 	flex-basis: calc((100% / 2) - var(--gutterHecto));
 	flex-grow: 1;
+	align-self: center;
 }
 
-.deux-panneaux > h2 {
+.deux-panneaux > h3 {
 	flex-basis: 100%;
+
+
 }
 
 .deux-panneaux .panneau-texte {
@@ -213,6 +224,7 @@ nav.navigation {
 
 .navigation-principale > * {
 	flex-grow: 1;
+	position: relative;
 }
 
 .selection-langue {
@@ -228,15 +240,18 @@ nav.navigation {
 .menu ul ul {
 	display:none;
 	position:absolute;
-	padding:0;
+	left: 0;
+
+	width: max-content;
+	
 	background-color: white;
-	margin-left: -10px;
 }
 
-.menu>ul>li>ul a {
+.navigation-principale li > ul a {
 	display: block; 
-	padding: 0;
-	margin: 0;
+	
+	width: 100%;
+
 	line-height: 1.3em;
 	color: inherit;
 	transition-duration: 100ms;
@@ -246,7 +261,7 @@ nav.navigation {
 	display: block; 
 }
 
-.menu a {
+nav ul a {
 	padding: 6px clamp(.5em, .3em + 1.2vw, 1em);
 	color: inherit;
 	
@@ -263,26 +278,30 @@ nav.navigation {
 
 
 /*------------menu burger--------------*/
+#toggle:checked ~ label > svg {
+	transform: rotateZ(180deg);
+}
+
 .label-toggle {
-	margin: 0 40px 0 0;
-	font-size: 26px;
-	line-height: 70px;
 	display: none;
-	width: 26px;
-	float: left;
-	z-index: 2;
-	position: relative;
+
+	height: var(--bottomBarHeight);
+	padding-top: var(--gutter);
+	padding-bottom: var(--gutterDeca);
 }
 
-#toggle {
-	display: none;
+.label-toggle > svg {
+	display: inline-block;
+	width: 30px;
+
+	transition-property: transform;
+	transition-timing-function: ease-in;
+	transition-duration: 150ms;
 }
 
-.nav>label{
-	display: none;
+.label-toggle > span {
+	margin-top: var(--gutterCenti);
 }
-
-
 
 
 /*----------------footer----------------*/
@@ -291,6 +310,7 @@ footer {
 	grid-template-columns: minmax(min-content, 30ch) auto minmax(min-content, 30ch);
 	gap: var(--gutter);
 
+	width: 50%;
 	padding: var(--gutter);
 }
 
@@ -317,21 +337,7 @@ footer .logo {
 
 
 /* Adaptation de la maquette pour les appareils suivants */
-@media (min-width: 320px) and (max-width: 650px) {
-	:root {
-		--cardMinSize: 300px;
-	}
-
-	.grille img {
-		max-height: 150px;
-	}
-
-	.encadre > .contenu > * {
-		min-width: 20ch;
-	}
-}
-
-@media (min-width: 651px) and (max-width: 1150px) {
+@media (max-width: 1150px) {
 	:root {
 		--cardMinSize: 400px;
 	}
@@ -357,46 +363,68 @@ footer .logo {
 	}
 }
 
+@media (max-width: 650px) {
+	:root {
+		--cardMinSize: 300px;
+	}
 
-@media (min-width: 320px) and (max-width: 500px) {
-	/*Téléphone*/
-	body>*+* {
-		margin-top: 40px;
+	.grille img {
+		max-height: 150px;
 	}
-	
-	.menu_droite {
-		margin-left: 10px;
-	}
-	
-	
-	#site-search { 
-		width: 60px;
-	}
-		
-	.adresse {
-		display: flex;
-		align-items: center;
-		text-align: center;
-		margin: 20px;		
-	}
-	
-	.mail-search {
-		margin-left: 0;
-		width: 100px;
+
+	.encadre > .contenu > * {
+		min-width: 20ch;
 	}
 }
 
+
+
+
+
 /*-------------Menu secondaire dans le footer en 2 colonnes--------*/
-@media (min-width: 320px) and (max-width: 461px) {
-	footer ul {  
+@media (min-width: 320px) and (max-width: 720px) {
+	footer {
+		grid-template:
+			".....	address	......"
+			".....	nav		....."
+			".....	news	....."
+			/ 1fr	6fr		1fr;
+		gap: var(--gutterHecto);
+
+		text-align: center;
+	}
+
+	.adresse,
+	.menu_secondaire,
+	.infolettre {  
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+	}
+
+	footer .infolettre {
+		text-align: center;
 	}
 }
 
 /*----------Menu burger seulement avec-------------- */
-@media (min-width: 320px) and (max-width: 980px) {
+@media (max-width: 1050px) {
+	body {
+		padding-top: var(--gutterHecto);
+	}
+	/* Ajustement de la marge supérieure du titre principal */
+	header > h1 {
+		margin-top: .5em;
+	}
+
+	/* Déployer le logo de haut de page */
+	.logo-mobile {
+		display: block;
+	}
 	
+	
+	
+	/*---------------menu burger---------------*/
 	.menu ul ul {
 		display:block;
 		position:relative;
@@ -404,73 +432,96 @@ footer .logo {
 		margin-left: 0;
 	}
 	
-	
-	/*---------------menu burger---------------*/
-	header {  
-		margin-top: 50px; 
-	}
-	
 	header ul {  
 		display: flex;
 		flex-direction: column;
 	}
-	
-	.nav {
-		position: fixed;
-		top: 0;
-		width: calc(100% - 5px);
-		z-index: 1;
+		
+	.selection-langue {
+		justify-self: start;
 	}
 	
-	.navigation { 
-		flex-direction: column-reverse;
+	footer {
+		margin-bottom: calc(var(--bottomBarHeight) + var(--gutterDeca));
 	}
-	
-	.menu_droite { 
-		margin-left: auto;
-	}
-	
-	.menu_droite ul { 
-		flex-direction: row;
-	}
-	
+
 	.label-toggle {
 		display: block;
 		cursor: pointer;
-	}
-	.menu-burger {
-		width: 100%;
-		display: none; 
+
 		position: fixed;
-		background-color: white;
 		left: 0;
-		right: 0;
-		top: 0;
 		bottom: 0;
+		z-index: 2;
+		
+		width: 100%;
+
+		background-color: var(--primary-dark);
+	}
+
+	.label-toggle > span {
+		display: block;
+	}
+
+	.menu-burger {
+		position: fixed;
+		left: 0;
+		bottom: -100%;
 		z-index: 1;
+		
+		width: 100%;
+		height: calc(100% - var(--bottomBarHeight));
+		padding: var(--gutter);
+		
+		background-color: white;
+		opacity: 0.5;
+
 		align-items: center;
 		justify-content: center;
+
+		transition-property: opacity, bottom;
+		transition-timing-function: ease-in;
+		transition-duration: 150ms;
 	}
+
+
 	.menu-burger a {
 		display: block;
+		
 		border-bottom: 1px solid #EAEAEB;
 		margin: 0;
 		
 	}
-	#toggle:checked + .menu-burger {
-		display: flex;
+
+	.navigation-principale ul a {
+		padding-left: var(--gutterDeca);
 	}
-	
-	.nav>label{
-		display: block;
+
+	#toggle:checked ~ .menu-burger {
+		display: flex;
+
+		bottom: var(--bottomBarHeight);
+		opacity: 1;	
 	}
 }
 
 /*------------------Téléphone et Tablette---------------*/
-@media (min-width: 320px) and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {
 
 	.menu ul {  
-		display: flex;
 		align-items: unset;
 	}
 }
+
+
+
+/* Utilitaires :::::::: */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+  }

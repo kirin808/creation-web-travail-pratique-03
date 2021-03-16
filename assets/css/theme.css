@@ -1,6 +1,6 @@
 /* Propriétés personnalisées :::::::: */
 :root {
-	--primary-dark: hsl(120, 70%, 20%);
+	--primary-dark: hsl(148, 100%, 20%)/*hsl(120, 70%, 20%)*/;
 }
 
 /* Réinitialisations :::::::: */
@@ -25,7 +25,7 @@ h4 {
 }
 
 input,
-.encadre {
+.encadre:not(.encadre--pair) {
 	background-color: rgba(15, 235, 44, 0.1);
 }
 
@@ -53,13 +53,13 @@ button,
 	
 	cursor: pointer;
 
-	transition-property: transform background-color;
+	transition-property: transform, background-color;
 	transition-duration: 120ms;
 }
 
 :is(button, .cta):hover,
 :is(button, .cta):focus {
-	background-color: rgba(15, 235, 44, 0.3);
+	background-color: hsla(59, 75%, 51%, 0.527);
 	color:#000000;
 }
 
@@ -82,14 +82,32 @@ button,
 
 /* Bordure de séparation de certains éléments d'en-tête */
 section > header,
-.promo h2 {
+.promo h3 {
 	padding-bottom: 10px;
 	border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 
 /* Navigation */
-.menu a:hover {
+nav > ul a:hover {
 	background-color: var(--primary-dark);
 	color: white;
+}
+
+
+
+/* Bouton pour le menu burger */
+.label-toggle {
+	color: white;
+	fill: currentColor;
+}
+
+
+
+
+/* Adaptation des éléments de premiers niveau pour le menu burger */
+@media screen and (max-width: 1050px) {
+	.navigation-principale > li {
+		background-color: rgba(15, 235, 44, 0.1);
+	}
 }
